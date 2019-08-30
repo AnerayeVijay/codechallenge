@@ -22,5 +22,19 @@ class FizzBuzzTest {
         assertThat(buzz(5), equalTo("buzz"))
     }
 
-     fun buzz(number:  Int)= "buzz"
+    @Test
+    fun `give null if number is not multiple of 5`() {
+        assertNull(buzz(6))
+    }
+
+    @Test
+    fun `fizzbuzz if number is multiple of 5 and three`() {
+        assertThat(fizzBuzz(15), equalTo("fizzbuzz"))
+    }
+
+    @Test
+    fun `print number if is not multiple of 3 or 5`() {
+        assertThat(fizzBuzz(4), equalTo("4"))
+    }
 }
+
