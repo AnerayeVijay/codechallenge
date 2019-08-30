@@ -1,9 +1,11 @@
 package com.fizzbuzz
 
-import junit.framework.Assert.assertNull
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertNull
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 
 class FizzBuzzTest {
 
@@ -27,14 +29,26 @@ class FizzBuzzTest {
         assertNull(buzz(6))
     }
 
-    @Test
-    fun `fizzbuzz if number is multiple of 5 and three`() {
-        assertThat(fizzBuzz(15), equalTo("fizzbuzz"))
+    @ParameterizedTest
+    @CsvSource(value = arrayOf("1,1",
+        "2,2",
+        "3,fizz",
+        "4,4",
+        "5,buzz",
+        "6,fizz",
+        "7,7",
+        "8,8",
+        "9,fizz",
+        "10,buzz",
+        "11,11",
+        "12,fizz",
+        "13,13",
+        "14,14",
+        "15,fizzbuzz",
+        "16,16"))
+    fun `fizzbuzz if number is multiple of 5 and three`(number: Int, fizzBuzz: String ) {
+        assertThat(fizzBuzz(number), equalTo(fizzBuzz))
     }
 
-    @Test
-    fun `print number if is not multiple of 3 or 5`() {
-        assertThat(fizzBuzz(4), equalTo("4"))
-    }
 }
 
