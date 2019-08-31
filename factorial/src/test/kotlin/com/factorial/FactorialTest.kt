@@ -3,22 +3,19 @@ package com.factorial
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 
 class FactorialTest {
 
-    @Test
-    fun `factorial of 1 is 1`() {
-        assertThat(factorialOf(1), equalTo(1))
+    @ParameterizedTest
+    @CsvSource(value = arrayOf("1,1",
+        "2,2",
+        "3,6"))
+    fun `factorial of {0} is {1}`(number: Int, factorial: Int) {
+        assertThat(factorialOf(number), equalTo(factorial))
     }
 
-    @Test
-    internal fun `factorial of 2 is 2`() {
-        assertThat(factorialOf(2), equalTo(2))
-    }
 
-    @Test
-    internal fun `factorial of 3 is 6`() {
-        assertThat(factorialOf(3), equalTo(6))
-    }
 
 }
