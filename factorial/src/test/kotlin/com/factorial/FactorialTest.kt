@@ -21,8 +21,4 @@ class FactorialTest {
         assertThat(factorialOf(3), equalTo(6))
     }
 
-    fun factorialOf(number: Int): Int = when {
-        number == 0  -> 1
-        else -> (number * factorialOf(number-1))
-    }
 }
