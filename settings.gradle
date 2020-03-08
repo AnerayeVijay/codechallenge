@@ -1,2 +1,3 @@
 rootProject.name = 'codingchallege'
-
+include 'binary-tree-avg-node'
+include 'leetcoding'
