@@ -1,14 +1,14 @@
 package com.canas
 
-class CreateLineCommand(val commands: Array<String>, val canvas: Canvas) : Command {
+class CreateLineCommand(private val command: Array<String>, private val canvas: Canvas) : Command {
 
     override fun execute(): String {
         val canvasWithLine = canvas.createCanvas(
             drawnLine(
-                commands[1].toInt(),
-                commands[2].toInt(),
-                commands[3].toInt(),
-                commands[4].toInt()
+                command[1].toInt(),
+                command[2].toInt(),
+                command[3].toInt(),
+                command[4].toInt()
             ), canvas
         )
         return canvasWithLine()
