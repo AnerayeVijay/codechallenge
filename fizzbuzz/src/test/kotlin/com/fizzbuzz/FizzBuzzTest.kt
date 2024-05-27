@@ -1,17 +1,17 @@
 package com.fizzbuzz
 
-import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
+import kotlin.test.assertEquals
+
 
 class FizzBuzzTest {
 
     @Test
     fun `return fizz if 3 number is divided by 3`() {
-        assertThat(fizz(3),equalTo("fizz"))
+        assertEquals(fizz(3),("fizz"))
     }
 
     @Test
@@ -21,7 +21,7 @@ class FizzBuzzTest {
 
     @Test
     fun `give buzz if number is multiplication of 5`() {
-        assertThat(buzz(5), equalTo("buzz"))
+        assertEquals(buzz(5), ("buzz"))
     }
 
     @Test
@@ -47,7 +47,7 @@ class FizzBuzzTest {
         "15,fizzbuzz",
         "16,16"))
     fun `fizzbuzz if number is multiple of 5 and three`(number: Int, fizzBuzz: String ) {
-        assertThat(fizzBuzz(number), equalTo(fizzBuzz))
+        assertEquals(fizzBuzz(number), (fizzBuzz))
     }
 
 }

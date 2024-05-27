@@ -41,7 +41,7 @@ fun fibonacciOfUsingUpToGivenNumber() {
     var temp = 0
     var a = 0
     var b = 1
-    var n = 100
+    var n = 50
     while (a<=n) {
         print("$a ")
         temp = a + b
@@ -53,15 +53,15 @@ fun fibonacciOfUsingUpToGivenNumber() {
 
 
 fun main(args: Array<String>) {
-    fibonacciOfUsingForLoop()
-    println()
-    fibonacciOfUsingWhileLoop()
-    println()
+    //fibonacciOfUsingForLoop()
+    //println()
+   // fibonacciOfUsingWhileLoop()
+   // println()
     fibonacciOfUsingUpToGivenNumber()
-    println()
-    for(i in 0..9){
-        print("${fibonacciOf(i)} ")
-    }
+   // println()
+   // for(i in 0..9){
+    //    print("${fibonacciOf(i)} ")
+   // }
 }
 //1,1,2,3,5,8
 

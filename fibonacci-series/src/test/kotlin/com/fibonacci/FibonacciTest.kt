@@ -1,9 +1,10 @@
 package com.fibonacci
 
-import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.MatcherAssert.assertThat
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
+import kotlin.test.assertEquals
+
 
 class FibonacciTest {
 
@@ -14,7 +15,7 @@ class FibonacciTest {
        "5,5",
        "6,8"))
     fun `fibonacci of index is 1`(index: Int, fibonacci: Int) {
-        assertThat(fibonacciOf(index), equalTo(fibonacci))
+        assertEquals(fibonacciOf(index), fibonacci)
     }
 
 }

@@ -1,14 +1,13 @@
 package com.canas
 
-import org.hamcrest.CoreMatchers
-import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.MatcherAssert
-import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
+
+
 class CreateNewCanvasCommandTest {
     @Test
     fun `create canvas with height=2 and width =20`() {
-        assertThat(
+        assertEquals(
             CanvasCommandFactory.canvasCommand(
                 arrayOf(
                     "C",
@@ -16,7 +15,7 @@ class CreateNewCanvasCommandTest {
                     "2"
                 )
             ).execute(),
-            equalTo("---------------------\n" +
+            ("---------------------\n" +
                     "|                    |\n" +
                     "|                    |\n" +
                     "---------------------")

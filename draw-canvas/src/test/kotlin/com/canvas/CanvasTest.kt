@@ -1,12 +1,14 @@
-package com.canas
+package com.canvas
 
+import com.canas.CanvasCommandFactory
 import com.canas.CanvasCommandFactory.canvasCommand
-import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.MatcherAssert.assertThat
+import com.canas.CanvasException
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
+import kotlin.test.assertEquals
+
 
 class CanvasTest {
 
@@ -16,7 +18,7 @@ class CanvasTest {
         "L,drawLineInCanvas",
         "A,UnKnownCommand"))
     fun `understand command for canvas`(command: String,className: String) {
-        assertThat(CanvasCommandFactory.canvasCommand(arrayOf(command)).toString(), equalTo(className))
+        assertEquals(CanvasCommandFactory.canvasCommand(arrayOf(command)).toString(), (className))
     }
 
     @Test
@@ -28,12 +30,12 @@ class CanvasTest {
     @Test
     fun `create line with 1,2,6,2`() {
         val canvas =canvasCommand(arrayOf("L","1","2","6","2")).execute()
-        assertThat(canvas, equalTo("|       |\\n|xxxxxx |\\n|       |\\n|       |"))
+        assertEquals(canvas, "|       |\\n|xxxxxx |\\n|       |\\n|       |")
     }
 
     @Test
      fun `create line with L 6 3 6 4`() {
-        assertThat(canvasCommand(arrayOf("L", "6", "3", "6", "4")).execute(), equalTo("|       |\\n|       |\\n|     x |\\n|     x |"))
+        assertEquals(canvasCommand(arrayOf("L", "6", "3", "6", "4")).execute(), ("|       |\\n|       |\\n|     x |\\n|     x |"))
 
     }
 
@@ -41,7 +43,7 @@ class CanvasTest {
 
     @Test
     fun `create line with x for given parameter`() {
-        assertThat(createLineFor(1,2,6,2), equalTo("xxxxxx"))
+        assertEquals(createLineFor(1,2,6,2), ("xxxxxx"))
     }
 
     private fun createLineFor(x1: Int, y1: Int, x2: Int, y2: Int): String? {
